@@ -13,8 +13,10 @@ def gerarRecibo(completeUserName, carrinho, valores, totalCompra, valorUnitarioP
     recibo += "{:<15} {:<20} {:<25} {:<20}\n".format("Item", "Quantidade", "Valor Unitário", "Total")
 
     # Preenchimento do recibo com os itens no carrinho do cliente 
+    count = 0
     for item, totalItems in carrinho.items():
-        valorUnitario = valorUnitarioP[len(carrinho) - 1]
+        valorUnitario = valorUnitarioP[count]
+        count += 1
         totalItem = valorUnitario * int(totalItems)
         recibo += "{:<15} {:<20} R${:<25} R${:<20.2f}\n".format(item, totalItems, valorUnitario, totalItem)
 
